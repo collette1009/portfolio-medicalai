@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오희은 | 메디컬에이아이 Junior Software PM 포트폴리오</title>
+<meta name="description" content="사용자와 운영 현장에서 발견한 문제를 요구사항·이슈로 구조화하고, 개발·운영 조직과 구현·테스트·적용까지 연결해온 운영 기반 PM 지원자">
+<style>
+  :root{
+    --ink:#171717;
+    --sub:#4b4b4b;
+    --muted:#757575;
+    --line:#dedede;
+    --soft:#f6f6f5;
+    --charcoal:#282d32;
+    --charcoal-soft:#eeeeee;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:Pretendard,"Pretendard Variable","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+    color:var(--ink);background:#fff;font-size:15.5px;line-height:1.75;
+    word-break:keep-all;overflow-wrap:break-word;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
+  section{padding:72px 0;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:960px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .nav-logo{font-size:14px;font-weight:800;letter-spacing:-.01em;white-space:nowrap;}
+  .nav-links{display:flex;gap:22px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .nav-links a{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap;padding:2px 0;}
+  .nav-links a:hover{color:var(--ink);}
+
+  /* HERO */
+  .hero{padding:60px 0 66px;border-top:5px solid var(--charcoal);}
+  .hero-tag{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;}
+  .hero-tag:before{content:"";width:7px;height:7px;background:var(--charcoal);display:inline-block;}
+  .hero h1{font-size:38px;font-weight:800;letter-spacing:-.03em;margin-bottom:20px;}
+  .hero-message{font-size:19px;font-weight:800;line-height:1.65;color:var(--ink);border-left:3px solid var(--charcoal);padding-left:18px;margin-bottom:18px;max-width:600px;}
+  .hero-role{font-size:14px;color:var(--sub);line-height:1.85;max-width:600px;margin-bottom:26px;}
+  .hero-lead{font-size:13.8px;color:var(--sub);line-height:1.95;max-width:640px;background:var(--soft);border:1px solid var(--line);padding:18px 20px;}
+
+  /* SECTION HEAD */
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .sec-title{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.4;margin-bottom:32px;display:flex;align-items:center;gap:9px;}
+  .sec-title:before{content:"";width:9px;height:9px;background:var(--charcoal);display:inline-block;flex-shrink:0;}
+
+  /* ROLE FIT */
+  .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .fit-card{border:1px solid var(--line);padding:22px 24px;}
+  .fit-card h3{font-size:15px;font-weight:800;margin-bottom:9px;letter-spacing:-.01em;}
+  .fit-card p{font-size:13.5px;color:var(--sub);line-height:1.75;}
+
+  /* KEY RESULTS */
+  .results-section{background:var(--charcoal);padding:72px 0;}
+  .results-section .eyebrow{color:rgba(255,255,255,.5);}
+  .results-section .sec-title{color:#fff;}
+  .results-section .sec-title:before{background:#fff;}
+  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .result-card{background:#34383e;padding:22px 18px;text-align:center;}
+  .result-n{font-size:24px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:9px;}
+  .result-t{font-size:12.8px;font-weight:800;color:#fff;margin-bottom:6px;line-height:1.4;}
+  .result-d{font-size:11px;color:rgba(255,255,255,.55);line-height:1.5;}
+
+  /* CASE CARDS */
+  .case-no{font-size:11.5px;font-weight:700;letter-spacing:.09em;color:var(--muted);margin-bottom:10px;}
+  .case-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
+  .case-tag{font-size:11px;font-weight:700;color:var(--ink);background:var(--soft);border:1px solid var(--line);padding:4px 11px;}
+  .case-role{font-size:12.8px;color:var(--sub);background:var(--soft);border-left:3px solid var(--charcoal);padding:11px 15px;margin-bottom:18px;line-height:1.7;}
+  .case-role b{color:var(--ink);}
+  .case-block{margin-bottom:22px;}
+  .case-block h4{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .case-block > p{font-size:13.8px;color:var(--sub);line-height:1.85;}
+  .step-list{margin-top:4px;}
+  .step{display:flex;gap:12px;margin-bottom:11px;align-items:flex-start;}
+  .step:last-child{margin-bottom:0;}
+  .step-badge{flex-shrink:0;width:20px;height:20px;background:var(--charcoal);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .step-body{font-size:13.5px;color:var(--sub);line-height:1.75;}
+  .step-body h5{font-size:13.8px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+  .result-box{background:var(--charcoal-soft);border-left:3px solid var(--charcoal);padding:15px 18px;margin:16px 0;}
+  .result-box p{font-size:13.5px;color:var(--ink);line-height:1.8;}
+  .result-box b{color:var(--charcoal);}
+  .apply-line{font-size:13.2px;color:var(--sub);border-top:1px dashed var(--line);padding-top:16px;margin-top:20px;line-height:1.8;}
+  .apply-line b{color:var(--ink);}
+
+  /* EVIDENCE SHOT */
+  .evidence{margin:20px 0;}
+  .evidence-label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .evidence img{max-width:420px;width:100%;display:block;margin:0 auto;border:1px solid var(--line);}
+  .evidence-cap{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:8px;}
+  .evidence-cap .title{font-weight:800;color:var(--ink);display:block;margin-bottom:3px;}
+  .evidence-cap .note{font-size:11px;color:var(--muted);}
+
+  /* CASE GRID (4 cases — 2x2) */
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .case-card{border:1px solid var(--line);padding:24px 22px;cursor:pointer;transition:box-shadow .15s,border-color .15s;background:#fff;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;width:100%;}
+  .case-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);border-color:#b7b7b7;}
+  .case-card:focus-visible{outline:2px solid var(--charcoal);outline-offset:2px;}
+  .case-card h3{font-size:16px;font-weight:800;line-height:1.5;margin:2px 0 12px;letter-spacing:-.01em;}
+  .case-card .blurb{font-size:12.8px;color:var(--sub);line-height:1.75;margin-bottom:16px;flex:1;}
+  .case-card-foot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:13px;}
+  .case-card-foot .summary{font-size:12px;font-weight:800;color:var(--ink);}
+  .case-more{font-size:12.5px;font-weight:700;color:var(--muted);white-space:nowrap;}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;background:rgba(23,23,23,.65);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow:hidden;}
+  .modal-overlay.open{display:flex;}
+  .modal-card{background:#fff;max-width:720px;width:100%;margin:0 auto;overflow-x:hidden;overflow-y:auto;max-height:calc(100vh - 80px);}
+  .modal-head{background:var(--charcoal);padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;position:sticky;top:0;z-index:2;flex-wrap:wrap;}
+  .modal-head .case-no{color:rgba(255,255,255,.55);margin-bottom:8px;}
+  .modal-head h2{font-size:18px;font-weight:800;color:#fff;line-height:1.5;letter-spacing:-.01em;}
+  .modal-nav{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+  .modal-nav-btn,.modal-close{width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.15);color:#fff;font-size:15px;border:none;cursor:pointer;font-family:inherit;flex-shrink:0;}
+  .modal-nav-btn:hover,.modal-close:hover{background:rgba(255,255,255,.28);}
+  .modal-body{padding:28px 30px 36px;}
+
+  /* WORK STYLE / TOOLS */
+  .tools-table{border-top:1.5px solid var(--ink);margin-bottom:12px;}
+  .tools-row{display:grid;grid-template-columns:150px 1fr;border-bottom:1px solid var(--line);}
+  .tools-row .label{font-weight:800;font-size:13px;background:var(--soft);padding:14px;}
+  .tools-row .value{font-size:13px;color:var(--sub);padding:14px;line-height:1.85;}
+  .tools-note{font-size:12.8px;color:var(--sub);line-height:1.85;margin-top:16px;border-left:3px solid var(--charcoal);padding-left:16px;}
+  .tools-note b{color:var(--ink);}
+
+  /* CONNECT */
+  .connect-table{border-top:1.5px solid var(--ink);margin-bottom:22px;}
+  .connect-row{display:grid;grid-template-columns:32px 1fr;gap:14px;padding:16px 2px;border-bottom:1px solid var(--line);align-items:baseline;}
+  .connect-row .num{font-weight:800;font-size:15px;color:var(--charcoal);}
+  .connect-row .text{font-size:13.8px;color:var(--sub);line-height:1.8;}
+  .connect-quote{font-size:13.8px;color:var(--sub);line-height:1.9;border-left:3px solid var(--charcoal);padding:2px 0 2px 18px;}
+  .connect-quote b{color:var(--ink);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:44px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .name{font-size:18px;font-weight:800;margin-bottom:5px;}
+  footer .role{font-size:12.5px;color:var(--muted);margin-bottom:9px;}
+  footer .info{font-size:13.5px;color:var(--sub);}
+  footer .mail-btn{padding:11px 22px;background:var(--charcoal);color:#fff;font-weight:700;font-size:13px;}
+  footer .mail-btn:hover{opacity:.85;}
+
+  @media (max-width:760px){
+    .hero h1{font-size:30px;}
+    .hero-message{font-size:16.5px;}
+    .fit-grid,.results-grid,.case-grid{grid-template-columns:1fr 1fr;}
+    .tools-row,.connect-row{grid-template-columns:1fr;}
+    .connect-row{grid-template-columns:26px 1fr;}
+    section{padding:48px 0;}
+    .results-section{padding:48px 0;}
+    .modal-overlay{padding:16px;}
+    .modal-head,.modal-body{padding-left:20px;padding-right:20px;}
+    .modal-card{max-height:calc(100vh - 32px);}
+  }
+  @media (max-width:520px){
+    .fit-grid,.results-grid,.case-grid{grid-template-columns:1fr;}
+  }
+
+  @page{size:A4;margin:14mm;}
+  @media print{
+    nav{position:static;}
+    .hero{padding-top:14px;border-top-width:4px;}
+    section{padding:26px 0;}
+    .results-section{padding:26px 0;}
+    .fit-card,.result-card{page-break-inside:avoid;break-inside:avoid;}
+    .nav-links a{color:#000;}
+    body{font-size:11.5pt;}
+    .case-grid{display:none;}
+    .modal-overlay{position:static !important;display:block !important;background:none;padding:0;inset:auto;}
+    .modal-card{max-height:none;overflow:visible;box-shadow:none;max-width:100%;margin:14px 0 30px;border:1px solid var(--line);page-break-inside:auto;break-inside:auto;}
+    .modal-head{position:static;background:var(--charcoal-soft);}
+    .modal-head h2{color:var(--ink);}
+    .modal-head .case-no{color:var(--muted);}
+    .modal-nav,.modal-close{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">오희은 · 메디컬에이아이 지원 포트폴리오</div>
+    <div class="nav-links">
+      <a href="#intro">소개</a>
+      <a href="#fit">직무 적합성</a>
+      <a href="#cases">주요 사례</a>
+      <a href="#workstyle">업무 방식</a>
+      <a href="#connect">메디컬에이아이 연결</a>
+      <a href="#contact">연락처</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="intro">
+  <div class="wrap">
+    <div class="hero-tag">메디컬에이아이 · Junior Software PM 지원</div>
+    <h1>오희은</h1>
+    <p class="hero-message">사용자와 운영 현장에서 발견한 문제를<br>요구사항·이슈로 구조화하고,<br>개발·운영 조직과 해결까지 연결해왔습니다.</p>
+    <p class="hero-role">이커머스 운영에서 요구사항·이슈·Action Item을 관리하고, 반복 업무는 자동화하며 구조적인 문제는 기능 개선으로 연결했습니다. 여러 시스템에 흩어진 정보와 진행 상태를 문서화해 담당자가 바뀌어도 동일한 기준으로 업무를 이어갈 수 있도록 관리했습니다.</p>
+    <p class="hero-lead">초록마을에서는 3PL 전환 이슈로 발생한 총 1,928건을 고객 영향도와 처리 시급성에 따라 재배송 1,151건과 취소 777건으로 분리했습니다. 약속일 마감 리스크가 큰 재배송 건은 Chrome Extension·Apps Script 자동화로 주말 내 선행 완료하고, 남은 취소 물량을 기준으로 지원 인력을 3명에서 2명으로 재산정해 월요일 오전 전체 처리를 마무리했습니다. 배송 제약 상품의 장바구니 안내 문제는 원인을 확인해 최소 구현안을 제안하고 CTO·개발 담당자와 당일 반영했습니다. 또한 Slack Workflow·Google Sheets 연동, Chrome Extension·Apps Script, Slack API, Python 기반 외부 API 연동 도구의 요구사항과 예외조건을 정리해 구성·구축하고 테스트했습니다. 1+1 프로모션 VOC 173건은 동일 기준으로 통합 분석해 반복 오인의 구조적 원인을 확인하고, 제품 구현 제약 안에서 고객 구제 기준을 수립했습니다.</p>
+  </div>
+</div>
+
+<!-- ROLE FIT -->
+<section id="fit">
+  <div class="wrap">
+    <div class="eyebrow">Role Fit</div>
+    <h2 class="sec-title">직무 적합성</h2>
+    <div class="fit-grid">
+      <div class="fit-card">
+        <h3>일정·이슈·Action Item 관리</h3>
+        <p>전체 작업을 고객 영향도와 일정 리스크에 따라 분리하고, 담당 구간·현재 상태·다음 조치·잔여 건·필요 인력을 재산정해 완료 여부까지 추적했습니다.</p>
+      </div>
+      <div class="fit-card">
+        <h3>요구사항·기능 개선안 정리</h3>
+        <p>사용자 불편을 입력 필드, 화면 문구, Workflow 동작, 예외 기준으로 구체화해 시스템·개발 담당자와 협의했습니다.</p>
+      </div>
+      <div class="fit-card">
+        <h3>테스트·QA 및 운영 적용</h3>
+        <p>자동화 도구와 API의 정상·오류·입력 예외를 테스트하고, 반영 이후 실제 화면·데이터·사용자 문의를 확인해 운영 적용 결과를 점검했습니다.</p>
+      </div>
+      <div class="fit-card">
+        <h3>개발 진행 현황·유관부서 협업</h3>
+        <p>CTO·개발·정보전략·EC·물류 담당자와 영향 범위, 우선순위, 구현 가능 범위, 적용 시점과 다음 조치를 맞추고 반영 여부를 확인했습니다.</p>
+      </div>
+      <div class="fit-card" style="grid-column:1/-1;">
+        <h3>문서·산출물 관리</h3>
+        <p>기능 요구사항, 예외조건, 테스트 체크 항목, 사용 가이드, SOP·QA 기준, 이슈 현황 시트를 작성해 담당자가 달라도 동일한 흐름으로 업무를 이어갈 수 있도록 했습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY RESULTS -->
+<div class="results-section">
+  <div class="wrap">
+    <div class="eyebrow">Key Results</div>
+    <h2 class="sec-title">주요 성과</h2>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-n">1,928건</div>
+        <div class="result-t">고객 약속일 기준 우선순위·리소스 조정</div>
+        <div class="result-d">재배송 1,151건 주말 완료 · 취소 777건 월요일 오전 완료</div>
+      </div>
+      <div class="result-card">
+        <div class="result-n">당일 반영</div>
+        <div class="result-t">사용자 문제 → 기능 개선</div>
+        <div class="result-d">등록 당일 6~10건 → 이후 0건 수준</div>
+      </div>
+      <div class="result-card">
+        <div class="result-n">7→1단계</div>
+        <div class="result-t">반품 등록 Workflow 자동화</div>
+        <div class="result-d">재배송 6→2 · 예외·테스트 기준 유지</div>
+      </div>
+      <div class="result-card">
+        <div class="result-n">173건</div>
+        <div class="result-t">사용자 피드백 통합 분석</div>
+        <div class="result-d">82% 동일 원인 · 고객 구제 기준 수립</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="wrap">
+    <div class="eyebrow">Case Study</div>
+    <h2 class="sec-title">주요 사례</h2>
+
+    <div class="case-grid">
+      <button type="button" class="case-card" onclick="openModal('m1')">
+        <div class="case-no">CASE 01 · 우선순위·일정 관리</div>
+        <h3>3PL 전환 이슈 대응 및 재배송·취소 1,928건 우선순위·일정 관리</h3>
+        <p class="blurb">3PL 전환 이슈의 총 1,928건을 고객 영향도와 처리 시급성에 따라 재배송과 취소로 분리하고, 약속일 마감 리스크가 큰 재배송 1,151건을 자동화로 주말 내 선행 완료한 뒤 잔여 물량과 필요 인력을 다시 산정했습니다.</p>
+        <div class="case-card-foot">
+          <span class="summary">재배송 1,151건 주말 완료 · 취소 777건 월요일 오전 완료</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </button>
+
+      <button type="button" class="case-card" onclick="openModal('m2')">
+        <div class="case-no">CASE 02 · 요구사항 → 제품 개선</div>
+        <h3>사용자 문제를 기능 요구사항으로 전환한 제품 개선</h3>
+        <p class="blurb">배송 제약 상품 등록 직후 집중된 문의의 공통 원인을 확인하고, 최소 구현안을 요구사항으로 정리해 개발팀과 당일 반영했습니다.</p>
+        <div class="case-card-foot">
+          <span class="summary">등록 당일 6~10건 → 반영 후 0건 수준</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </button>
+
+      <button type="button" class="case-card" onclick="openModal('m3')">
+        <div class="case-no">CASE 03 · 자동화 도구 구축 및 QA</div>
+        <h3>내부 운영 Workflow·자동화 도구 구축 및 QA</h3>
+        <p class="blurb">반복 업무의 요구사항·예외조건을 먼저 정리하고 자동화 도구를 구성·구축한 뒤, 정상·오류·입력 예외를 테스트하고 사용 가이드로 문서화했습니다.</p>
+        <div class="case-card-foot">
+          <span class="summary">요구사항·예외 정의 · 도구 구성 · 테스트 · 문서화</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </button>
+
+      <button type="button" class="case-card" onclick="openModal('m4')">
+        <div class="case-no">CASE 04 · VOC 분석 → 고객 구제 기준</div>
+        <h3>사용자 피드백 173건 분석 및 제품·운영 대안 설계</h3>
+        <p class="blurb">12월 문의 증가를 계기로 이전 상담 이력까지 173건을 통합 분석해 반복 오인의 구조적 원인을 확인하고, UI 개선안을 검토한 뒤 구현 제약 안에서 고객 구제 기준을 수립했습니다.</p>
+        <div class="case-card-foot">
+          <span class="summary">173건 분석 · 고객 구제 기준 수립</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL 1: 3PL 재배송·취소 1,928건 우선순위·일정 관리 -->
+<div class="modal-overlay" id="m1" onclick="closeOnOverlay(event,'m1')" role="dialog" aria-modal="true" aria-labelledby="m1-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 01 / 04</div>
+        <h2 id="m1-title">3PL 전환 이슈 대응 및 재배송·취소 1,928건 우선순위·일정 관리</h2>
+      </div>
+      <div class="modal-nav">
+        <button type="button" class="modal-nav-btn" onclick="goTo('m1','m4')" aria-label="이전 사례">←</button>
+        <button type="button" class="modal-nav-btn" onclick="goTo('m1','m2')" aria-label="다음 사례">→</button>
+        <button type="button" class="modal-close" onclick="closeModal('m1')" aria-label="닫기">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="case-tags"><span class="case-tag">우선순위 설계</span><span class="case-tag">일정·리스크 관리</span><span class="case-tag">리소스 재산정</span></div>
+      <div class="case-role"><b>내 역할</b> · 전체 처리 대상 분류, 고객 영향도 기준 우선순위 설계, 자동화 실행, 잔여 작업량·인력 재산정, 유관부서 조율</div>
+
+      <div class="case-block">
+        <h4>Situation</h4>
+        <p>금요일 3PL 전환 과정에서 대량 재배송·취소 후속 처리가 발생해 총 1,928건의 처리 대상과 완료 일정을 다시 정리해야 했습니다. 이 중 재배송 대상 1,151건은 이미 한 차례 배송 불편을 겪은 고객에게 다시 안내한 도착 약속일이 있었고, 주말 동안 일반 주문이 늘면 고객에게 약속한 도착일의 주문 가능 물량이 마감될 위험이 있었습니다. 취소 대상 777건은 월요일에 처리해도 고객 영향이 상대적으로 작은 상황이었습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>Success Gap</h4>
+        <p>접수 순서나 전체 물량 기준으로만 작업을 배분하면 고객 약속 일정이 걸린 재배송 건이 상대적으로 늦게 처리될 위험이 있었습니다. 처음에는 전체 물량을 기준으로 지원 인력 3명을 요청한 상태였지만, 재배송과 취소의 긴급도 차이를 반영해 작업 순서와 필요 인력을 다시 설계할 필요가 있었습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>What I Tracked</h4>
+        <p>재배송·취소 건별 고객 영향도와 약속일 마감 위험 시점, 재배송 자동화 진행 상황, 남은 취소 물량과 처리 소요 시간, 필요 지원 인력 규모를 지속적으로 확인했습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>How I Coordinated</h4>
+        <div class="step-list">
+          <div class="step"><div class="step-badge">1</div><div class="step-body"><h5>고객 영향도 기준으로 우선순위 재설계</h5>처리량이 아니라 고객 영향도와 일정 리스크를 기준으로 재배송 1,151건과 취소 777건을 분리하고, 약속일 마감 위험이 있는 재배송을 최우선 과제로 지정했습니다.</div></div>
+          <div class="step"><div class="step-badge">2</div><div class="step-body"><h5>병목 구간에 자동화를 적용해 핵심 작업 선행 완료</h5>일정 지연의 병목 구간이었던 재배송 처리에 Chrome Extension과 Apps Script를 연결해 반복 입력 구간을 자동화하고, 핵심 작업을 주말 안에 선행 완료했습니다.</div></div>
+          <div class="step"><div class="step-badge">3</div><div class="step-body"><h5>잔여 작업량과 인력을 다시 산정</h5>재배송 자동화 완료 이후 남은 작업량이 취소 777건으로 줄어든 상황을 반영해 필요 지원 인력을 3명에서 2명으로 재산정하고, 월요일 오전 내 후속 처리를 마무리했습니다.</div></div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h4>Outcome</h4>
+        <div class="result-box">
+          <p>Chrome Extension과 Apps Script를 활용해 재배송 <b>1,151건을 주말 내 완료</b>함으로써, 이미 불편을 겪은 고객에게 약속한 도착일의 주문 가능 물량이 마감되는 리스크를 먼저 차단했습니다. 이후 취소 대상 <b>777건</b>의 작업량을 다시 계산해 지원 인력을 기존 3명에서 2명으로 조정했고, 월요일 오전 전체 후속 처리를 마무리했습니다. 추가 인력에만 의존하지 않고 우선순위와 잔여 작업량에 따라 일정·리소스를 재조정한 경험입니다.</p>
+        </div>
+      </div>
+
+      <p class="apply-line"><b>메디컬에이아이에서의 적용 ·</b> 이슈 대응 시에도 처리량이 아니라 고객 영향도와 일정 리스크를 기준으로 우선순위를 설계하고, 진행 상황에 따라 잔여 작업과 필요 리소스를 다시 추정해 조정하겠습니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: 사용자 문제 → 기능 요구사항 -->
+<div class="modal-overlay" id="m2" onclick="closeOnOverlay(event,'m2')" role="dialog" aria-modal="true" aria-labelledby="m2-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 02 / 04</div>
+        <h2 id="m2-title">사용자 문제를 기능 요구사항으로 전환한 제품 개선</h2>
+      </div>
+      <div class="modal-nav">
+        <button type="button" class="modal-nav-btn" onclick="goTo('m2','m1')" aria-label="이전 사례">←</button>
+        <button type="button" class="modal-nav-btn" onclick="goTo('m2','m3')" aria-label="다음 사례">→</button>
+        <button type="button" class="modal-close" onclick="closeModal('m2')" aria-label="닫기">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="case-tags"><span class="case-tag">요구사항 정의</span><span class="case-tag">최소 구현안 설계</span><span class="case-tag">개발팀 협의</span></div>
+      <div class="case-role"><b>내 역할</b> · 이상 문의 패턴 포착, 화면 구간 식별, 문제 재정의 및 요구사항 작성, 최소 구현안 설계, CTO·개발 담당자 협의</div>
+
+      <div class="case-block">
+        <h4>Situation</h4>
+        <p>화요일에만 도착 가능한 신규 상품을 등록한 직후, 기존에는 없던 동일 유형의 문의가 짧은 시간에 집중됐습니다. 배송 가능 요일이 다른 상품을 함께 담으면 주문이 차단됐지만, 고객 화면에는 일반적인 품절형 메시지가 노출돼 어떤 상품 때문에 주문이 불가능한지 알기 어려운 상태였습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>Success Gap</h4>
+        <p>실제 품절과 배송일 제약이 같은 방식으로 보이면서 고객은 문제를 스스로 해결할 수 없었고, 상담 담당자는 매번 상품과 배송 가능일을 다시 확인해 설명해야 했습니다. 주문 차단 로직 전체를 변경하지 않고도 고객이 원인을 이해할 수 있는 요구사항 정의가 필요했습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>What I Tracked</h4>
+        <p>신규 상품 등록 시점과 문의 발생 시점, 문의 고객의 장바구니 구성, 실제 재고 여부, 화면에 노출된 메시지를 비교했습니다. 문의 건마다 같은 배송 제약 상품이 포함돼 있었고 실제 품절이 아니었기 때문에, 개별 주문 문제가 아니라 화면 안내 구조에서 발생한 공통 문제로 판단했습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>How I Coordinated</h4>
+        <div class="step-list">
+          <div class="step"><div class="step-badge">1</div><div class="step-body">신규 상품 등록 직후 짧은 시간에 집중된 동일 유형 문의를 포착하고, 주문별 상품 구성과 노출 메시지를 비교해 공통 원인을 확인한 뒤 개발팀에 즉시 공유</div></div>
+          <div class="step"><div class="step-badge">2</div><div class="step-body">주문 차단 로직 전체를 변경하기보다, 주의상품 태그와 상품별 배송 가능 요일을 장바구니에 노출하는 최소 구현안을 요구사항으로 작성하고 예시 문구 제안</div></div>
+          <div class="step"><div class="step-badge">3</div><div class="step-body">CTO·개발 담당자와 구현 범위를 확인하고 당일 반영</div></div>
+          <div class="step"><div class="step-badge">4</div><div class="step-body">반영 이후 관련 문의 추이를 확인하고, 유사 상품과 프로모션 안내에도 같은 구조를 확대 적용</div></div>
+        </div>
+
+        <div class="evidence">
+          <div class="evidence-label">실제 화면</div>
+          <img src="https://collette1009.github.io/portfolio-main/kakao/case3-cart.png?v=2" alt="장바구니 상품별 배송 제약 안내 subtext 구현 화면">
+          <div class="evidence-cap">
+            <span class="title">장바구니 상품별 배송 제약 안내 subtext 반영 화면</span>
+            요구사항대로 구현됐는지 확인하고, 어떤 상품 때문에 배송일이 맞지 않는지 장바구니 단계에서 바로 확인할 수 있도록 개선했습니다.
+            <span class="note">내부 정보 비식별 처리</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h4>Outcome</h4>
+        <div class="result-box"><p>문제 확인 직후 상품별 배송 가능 요일을 장바구니에 안내하는 요구사항을 정리하고, CTO·개발 담당자와 협의해 당일 반영했습니다. 등록 당일 <b>6~10건 발생한 관련 문의는 반영 이후 0건 수준</b>으로 감소했으며, 동일한 안내 방식은 유사한 배송 제약 상품에도 확대 적용됐습니다.</p></div>
+      </div>
+
+      <p class="apply-line"><b>메디컬에이아이에서의 적용 ·</b> 사용자가 기능을 사용하지 못하는 이유를 화면과 실제 사용 흐름에서 확인하고, 요구사항과 최소 구현 범위로 정리해 개발 조직과 빠르게 검증하겠습니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: 내부 운영 Workflow·자동화 도구 구축 및 QA -->
+<div class="modal-overlay" id="m3" onclick="closeOnOverlay(event,'m3')" role="dialog" aria-modal="true" aria-labelledby="m3-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 03 / 04</div>
+        <h2 id="m3-title">내부 운영 Workflow·자동화 도구 구축 및 QA</h2>
+      </div>
+      <div class="modal-nav">
+        <button type="button" class="modal-nav-btn" onclick="goTo('m3','m2')" aria-label="이전 사례">←</button>
+        <button type="button" class="modal-nav-btn" onclick="goTo('m3','m4')" aria-label="다음 사례">→</button>
+        <button type="button" class="modal-close" onclick="closeModal('m3')" aria-label="닫기">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="case-tags"><span class="case-tag">요구사항·예외조건 정의</span><span class="case-tag">도구 구성·구축</span><span class="case-tag">테스트·문서화</span></div>
+      <div class="case-role"><b>내 역할</b> · 자동화 도구 요구사항 정의, 예외조건 설계, Claude를 활용한 도구 구성·구축, 정상·오류·입력 예외 테스트, 사용 가이드 문서화</div>
+
+      <div class="case-block">
+        <h4>Situation</h4>
+        <p>매장·타부서의 자유 형식 Slack 요청, 반복적인 재배송·반품 등록, 담당자·상품코드 조회, 환불 계좌 검증까지 여러 반복 업무가 수작업으로 운영되고 있었습니다. 각 업무마다 필요한 입력 항목과 예외 상황이 달라 자동화 전에 요구사항과 예외조건을 먼저 정리할 필요가 있었습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>Success Gap</h4>
+        <p>자동화 도구를 만들더라도 예외조건과 테스트 항목이 명확하지 않으면 오류 발생 시 원인 파악이 어렵고, 담당자가 바뀌면 사용 방법이 제대로 전달되지 않을 위험이 있었습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>What I Tracked</h4>
+        <p>업무별 입력 항목, 처리 예외 상황(귀책·비용 판단이 필요한 구간), 정상·오류 케이스 테스트 결과, 실제 적용 이후 사용자 피드백을 확인했습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>How I Coordinated</h4>
+        <div class="step-list">
+          <div class="step"><div class="step-badge">1</div><div class="step-body"><h5>요청 접수 요구사항 표준화</h5>Slack Workflow Builder로 작성자·담당자·상품정보·문의·요청·이미지 항목을 정의하고 표준 접수 양식을 구성했습니다. 접수 내용은 담당자를 태그해 지정 채널에 게시하고, Slack Workflow의 네이티브 Google Sheets 연동 기능으로 시트에 자동 기록되도록 연결했습니다.</div></div>
+          <div class="step"><div class="step-badge">2</div><div class="step-body"><h5>반복 처리 구간 자동화</h5>Claude를 활용해 Chrome Extension과 Apps Script 기반 자동화 도구를 구성하고, 재배송 등록은 6→2단계, 반품 등록은 7→1단계로 단축했습니다. 귀책·비용 판단이 필요한 구간은 예외 기준으로 남겨 담당자가 직접 확인하도록 설계했습니다.</div></div>
+          <div class="step"><div class="step-badge">3</div><div class="step-body"><h5>조회·검증용 API 연동 도구 구축</h5>Slack API 기반 담당자·상품코드 조회봇과 Claude를 활용한 Python 기반 외부 예금주 조회 API 연동 도구를 구축하고, 정상 응답·오류 응답·입력값 누락 등 예외 케이스를 테스트했습니다.</div></div>
+          <div class="step"><div class="step-badge">4</div><div class="step-body"><h5>요구사항·테스트 결과 문서화</h5>도구별 요구사항, 입력값, 예외조건, 테스트 결과, 사용 절차를 문서화해 실제 운영에 적용하고, 사용 과정에서 확인된 오류와 불편 사항을 반영했습니다.</div></div>
+        </div>
+
+        <div class="evidence">
+          <div class="evidence-label">실제 화면</div>
+          <img src="https://collette1009.github.io/portfolio-main/kakao/case1-admin.png" alt="Chrome Extension 반품 자동입력 화면">
+          <div class="evidence-cap">
+            <span class="title">Chrome Extension — 반품·재배송 등록 주요 항목 자동 입력</span>
+            요구사항대로 구현됐는지 확인하고 실제 운영에 적용한 화면입니다.
+            <span class="note">내부 정보 비식별 처리</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h4>Outcome</h4>
+        <div class="result-box">
+          <p>요구사항과 예외조건을 먼저 정의한 뒤 업무 성격에 맞는 도구를 각각 구성해, 재배송 등록은 <b>6→2단계</b>, 반품 등록은 <b>7→1단계</b>로 단축했습니다. Slack 요청 접수, 담당자·상품코드 조회, 환불 계좌 검증도 반복 검색과 수기 확인을 줄이는 구조로 전환했습니다. 도구별 테스트 결과와 사용 가이드를 남겨 담당자가 바뀌어도 같은 기준으로 사용할 수 있도록 운영에 정착시켰습니다.</p>
+        </div>
+      </div>
+
+      <p class="apply-line"><b>메디컬에이아이에서의 적용 ·</b> 기능을 구현하기 전에 요구사항과 예외조건을 먼저 문서로 정리하고, 정상·오류 케이스를 직접 테스트한 뒤 사용 가이드까지 남겨 운영 리스크를 줄이겠습니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: 사용자 피드백 173건 분석 -->
+<div class="modal-overlay" id="m4" onclick="closeOnOverlay(event,'m4')" role="dialog" aria-modal="true" aria-labelledby="m4-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 04 / 04</div>
+        <h2 id="m4-title">사용자 피드백 173건 분석 및 제품·운영 대안 설계</h2>
+      </div>
+      <div class="modal-nav">
+        <button type="button" class="modal-nav-btn" onclick="goTo('m4','m3')" aria-label="이전 사례">←</button>
+        <button type="button" class="modal-nav-btn" onclick="goTo('m4','m1')" aria-label="다음 사례">→</button>
+        <button type="button" class="modal-close" onclick="closeModal('m4')" aria-label="닫기">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="case-tags"><span class="case-tag">피드백 통합 분석</span><span class="case-tag">AS-IS/TO-BE 설계</span><span class="case-tag">고객 구제 기준 수립</span></div>
+      <div class="case-role"><b>내 역할</b> · 12월 문의 증가 패턴 확인, 이전 행사 피드백 통합, 173건 분류·분석, AS-IS/TO-BE 개선안 작성, 구현 제약 검토, 고객 구제 기준 설계</div>
+
+      <div class="case-block">
+        <h4>Situation</h4>
+        <p>1+1·2+1 프로모션이 진행될 때마다 일부 고객은 증정 수량까지 직접 장바구니에 담아야 한다는 사실을 알지 못한 채, 상품 1개만 담아도 혜택이 자동으로 적용된다고 인식했습니다. 조건을 충족하지 않은 상태에서는 부족 수량이나 필요한 행동이 안내되지 않아 고객이 결제 전에 오인을 알아차리기 어려웠고, 이미 혜택을 받았다고 생각한 상태에서 문의해 클레임 강도도 높은 편이었습니다. 12월 행사에서 같은 유형의 문의가 다시 증가하면서 반복 원인을 구조적으로 확인할 필요가 생겼습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>Success Gap</h4>
+        <p>이전에도 관련 피드백이 전달됐지만 행사 빈도, 전체 판매량 대비 문의 비중, 다양한 수량 조합과 UI 충돌 가능성 등의 이유로 추가 개선 우선순위를 확보하기 어려웠습니다. 단순히 문의가 많다는 설명을 반복하기보다, 이전 행사 이력까지 같은 기준으로 분석해 고객이 실제로 어디에서 조건을 오인하는지 보여주고 제품 개선과 운영 대안 중 현실적인 해결 방식을 결정할 필요가 있었습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>What I Tracked</h4>
+        <p>12월 행사 문의와 이전 프로모션 기간의 상담 이력을 함께 모아 피드백 173건을 인입 원인, 발생 채널, 고객 행동 시점, 정책 인지 여부로 재분류했습니다. 분석 결과 <b>143건(82%)</b>이 행사 조건과 수량 입력 방식 미인지에서 발생했고, <b>94.8%</b>가 모바일 채널에 집중돼 있음을 확인했습니다. 이를 통해 개별 고객의 단순 실수가 아니라 같은 화면 구조에서 반복되는 오인임을 확인했습니다.</p>
+      </div>
+
+      <div class="case-block">
+        <h4>How I Coordinated</h4>
+        <div class="step-list">
+          <div class="step"><div class="step-badge">1</div><div class="step-body">12월 문의 증가를 계기로 해당 기간의 피드백만 보지 않고 이전 행사 상담 이력까지 173건을 같은 기준으로 통합 분류</div></div>
+          <div class="step"><div class="step-badge">2</div><div class="step-body">조건 미충족 상태에서는 필요한 행동이 보이지 않는 문제를 정리하고, "혜택을 받으려면 X개를 더 담아주세요"와 같이 부족 수량을 안내하는 AS-IS/TO-BE 개선안 작성</div></div>
+          <div class="step"><div class="step-badge">3</div><div class="step-body">EC 리더와 PC·모바일 구조 차이, 수량 조합별 예외 조건, UI 충돌 가능성, 행사 빈도와 판매량 대비 피드백 비중을 함께 검토해 즉시 구현 여부 판단</div></div>
+          <div class="step"><div class="step-badge">4</div><div class="step-body">추가 UI 변경이 바로 진행되기 어려운 상황에서 초회 인입 고객에게는 누락 증정품을 추가 발송하고, 동일 사유 재문의부터는 행사 조건을 안내한 뒤 종결하는 고객 구제 기준 수립</div></div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h4>Outcome</h4>
+        <div class="result-box">
+          <p>추가 UI 구현이 즉시 어렵다는 제약을 확인한 뒤, 초회 고객에게는 누락 증정품을 추가 발송하고 동일 사유 재문의부터는 행사 조건을 안내하는 기준을 수립했습니다. 건당 3천 원 미만의 추가 배송비는 발생했지만, 이미 혜택을 받았다고 인식한 고객의 고강도 클레임이 장기화되는 것보다 빠르게 불만을 해소하는 편이 효율적이라고 판단했습니다. 이를 통해 상담원의 반복 설명과 감정 소모를 줄이면서 제품 제약 안에서 고객 경험을 보호했습니다.</p>
+        </div>
+      </div>
+
+      <p class="apply-line"><b>메디컬에이아이에서의 적용 ·</b> 기능 개선이 바로 반영되기 어려운 경우에도, 누적 데이터로 문제의 영향과 우선순위를 설명하고 구현 제약 안에서 사용자 경험을 지키는 운영 대안을 함께 설계하겠습니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WORK STYLE / TOOLS -->
+<section id="workstyle">
+  <div class="wrap">
+    <div class="eyebrow">Work Style</div>
+    <h2 class="sec-title">업무 방식·활용 도구</h2>
+    <div class="tools-table">
+      <div class="tools-row">
+        <div class="label">데이터 검수·표준화</div>
+        <div class="value">카카오VX 400여 제휴 골프장의 예약·취소·위약 정보를 공통 항목으로 검수·표준화하고, 누락·불명확 내용과 정책 변경 사항은 제휴사 확인 후 어드민에 반영</div>
+      </div>
+      <div class="tools-row">
+        <div class="label">이슈·문서 관리</div>
+        <div class="value">Notion·Google Sheets 기반 이슈·담당자·상태값·Action Item 관리 · 요구사항·예외조건·테스트 체크·사용 가이드·SOP 작성</div>
+      </div>
+      <div class="tools-row">
+        <div class="label">자동화·개발 협업</div>
+        <div class="value">Slack Workflow · Apps Script · Chrome Extension · Slack API · Python 기반 API 연동 · Claude 활용 · Zapier(근태 자동화)</div>
+      </div>
+      <div class="tools-row">
+        <div class="label">운영 QA·변경 관리</div>
+        <div class="value">정상·오류·입력 예외 테스트 · 반영 후 화면·데이터 확인 · SOP·에스컬레이션·온보딩 가이드 작성 · 변경 기준 공유</div>
+      </div>
+    </div>
+    <p class="tools-note">API를 직접 설계한 개발 경험이 아니라, <b>외부 API를 내부 업무 도구에 연동하고 요구사항·입력값·예외·테스트·운영 적용을 관리한 경험</b>입니다. 예: 외부 예금주 조회 API를 연동한 환불 계좌 검증 도구 구축.</p>
+  </div>
+</section>
+
+<!-- MEDICAL AI CONNECT -->
+<section id="connect">
+  <div class="wrap">
+    <div class="eyebrow">Medical AI Connect</div>
+    <h2 class="sec-title">메디컬에이아이에서 연결할 경험</h2>
+    <div class="connect-table">
+      <div class="connect-row">
+        <div class="num">1</div>
+        <div class="text">고객·내부 요구사항을 기능 단위로 정리</div>
+      </div>
+      <div class="connect-row">
+        <div class="num">2</div>
+        <div class="text">일정·이슈·담당자·현재 상태·다음 조치·완료 조건을 관리</div>
+      </div>
+      <div class="connect-row">
+        <div class="num">3</div>
+        <div class="text">반영 이후 실제 사용자 흐름과 운영 피드백까지 연결</div>
+      </div>
+    </div>
+    <p class="connect-quote">요구사항을 전달하는 데서 끝나지 않고, <b>일정과 진행 상태를 지속 확인하고 개발 중에는 예외와 테스트 항목을 점검하며, 반영 이후 실제 사용자 흐름과 운영 피드백까지 연결하겠습니다.</b></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding-bottom:0;">
+  <div class="wrap">
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="name">오희은</div>
+      <div class="role">(주)메디컬에이아이 · Junior Software PM 지원</div>
+      <div class="info">gldms1009@naver.com · 010-2357-2674</div>
+    </div>
+    <a href="mailto:gldms1009@naver.com" class="mail-btn">이메일 보내기</a>
+  </div>
+</footer>
+
+<script>
+  function openModal(id){
+    var m = document.getElementById(id);
+    if(!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id){
+    var m = document.getElementById(id);
+    if(!m) return;
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function goTo(fromId, toId){
+    closeModal(fromId);
+    openModal(toId);
+  }
+  function closeOnOverlay(e, id){
+    if(e.target && e.target.id === id) closeModal(id);
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.modal-overlay.open').forEach(function(m){ m.classList.remove('open'); });
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+</body>
+</html>
