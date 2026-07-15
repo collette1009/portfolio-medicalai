@@ -84,6 +84,14 @@
   .result-box{background:var(--charcoal-soft);border-left:3px solid var(--charcoal);padding:15px 18px;margin:16px 0;}
   .result-box p{font-size:13.5px;color:var(--ink);line-height:1.8;}
   .result-box b{color:var(--charcoal);}
+  .decision-summary{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .decision-card{background:var(--charcoal-soft);border-left:3px solid var(--charcoal);padding:15px 18px;}
+  .decision-card .decision-title{font-size:13.8px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+  .decision-card ul{list-style:none;}
+  .decision-card li{font-size:12.8px;color:var(--sub);line-height:1.7;margin-bottom:4px;}
+  .decision-card li:last-child{margin-bottom:0;}
+  .decision-card li b{color:var(--ink);}
+  @media (max-width:520px){.decision-summary{grid-template-columns:1fr;}}
   .apply-line{font-size:13.2px;color:var(--sub);border-top:1px dashed var(--line);padding-top:16px;margin-top:20px;line-height:1.8;}
   .apply-line b{color:var(--ink);}
 
@@ -363,12 +371,23 @@
       </div>
 
       <div class="case-block">
-        <h4>실제 협업 기록 · 우선순위 및 지원 인력 재산정</h4>
-        <div class="evidence slack">
-          <img src="https://collette1009.github.io/portfolio-medicalai/evidence/case01-slack-evidence.png" alt="COO와의 Slack 대화 — 재배송 완료 및 지원 인력 재산정 보고">
-          <div class="evidence-cap">
-            재배송 1,151건 선행 완료 후, 잔여 취소 777건을 기준으로 지원 인력을 3명에서 2명으로 재산정한 당시 보고
-            <span class="note">내부 정보 비식별 처리</span>
+        <h4>우선순위·일정·리소스 판단 요약</h4>
+        <div class="decision-summary">
+          <div class="decision-card">
+            <div class="decision-title">재배송 1,151건</div>
+            <ul>
+              <li><b>판단</b> · 이미 불편을 겪은 고객의 약속 일정 영향이 큰 작업</li>
+              <li><b>완료 목표</b> · 주말 내</li>
+              <li><b>실행</b> · Chrome Extension·Apps Script 자동화로 선행 완료</li>
+            </ul>
+          </div>
+          <div class="decision-card">
+            <div class="decision-title">취소 777건</div>
+            <ul>
+              <li><b>판단</b> · 재배송보다 일정 리스크가 낮은 작업</li>
+              <li><b>완료 목표</b> · 월요일 오전</li>
+              <li><b>실행</b> · 잔여 작업량을 기준으로 지원 인력을 3명에서 2명으로 재산정</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -427,22 +446,12 @@
           <div class="step"><div class="step-badge">4</div><div class="step-body">반영 이후 관련 문의 추이를 확인하고, 토요일 도착 전용 상품이 추가됐을 때도 동일한 상품별 subtext 구조를 적용했습니다. 이에 따라 화요일·토요일 도착 상품을 함께 담은 고객이 각 상품의 배송 가능 요일과 나누어 주문이 필요할 수 있음을 장바구니에서 확인할 수 있도록 확장했습니다. 이후 상품운영팀에서도 동일한 안내 방식을 다른 주의상품과 프로모션 조건 안내에 활용했습니다.</div></div>
         </div>
 
-        <div class="evidence slack">
-          <div class="evidence-label">협의 과정</div>
-          <img src="https://collette1009.github.io/portfolio-medicalai/evidence/case02-slack-evidence.png" alt="CTO·SW개발팀과의 Slack 대화 — 배송 제약 상품 문제 재정의 및 MVP 협의">
-          <div class="evidence-cap">
-            문제 재정의 → MVP 제안 → 개발 가능 범위 확인
-            <span class="note">내부 정보 비식별 처리</span>
-          </div>
-        </div>
-
         <div class="evidence">
           <div class="evidence-label">반영 결과</div>
           <img src="https://collette1009.github.io/portfolio-medicalai/evidence/case02-cart-expanded.png" alt="화요일·토요일 도착 전용 상품의 배송 가능 요일과 나누어 주문 안내가 상품별로 노출된 장바구니 화면">
           <div class="evidence-cap">
             <span class="title">유사 배송 제약 상품으로 확장된 장바구니 안내 화면</span>
             초기 화요일 도착 전용 상품에 적용한 안내 구조를 토요일 도착 전용 상품에도 확장해, 서로 다른 배송 가능 요일의 상품을 함께 담았을 때 각 상품의 제약과 나누어 주문이 필요할 수 있음을 장바구니에서 확인할 수 있도록 했습니다.
-            <span class="note">내부 정보 비식별 처리</span>
           </div>
         </div>
       </div>
@@ -499,16 +508,6 @@
           <div class="step"><div class="step-badge">4</div><div class="step-body"><h5>요구사항·테스트 결과 문서화</h5>도구별 요구사항, 입력값, 예외조건, 테스트 결과, 사용 절차를 문서화해 실제 운영에 적용하고, 사용 과정에서 확인된 오류와 불편 사항을 반영했습니다.</div></div>
         </div>
 
-        <div class="evidence slack">
-          <div class="evidence-label">실제 협업 기록</div>
-          <img src="https://collette1009.github.io/portfolio-medicalai/evidence/case03-slack-api-review.png" alt="Slack 상품 담당자 조회 도구의 사용 전 운영 검토 기록">
-          <div class="evidence-cap">
-            <span class="title">Slack API 기반 상품 담당자 조회 도구 운영 검토</span>
-            Google Sheets의 담당자 데이터를 Slack 명령어로 조회하도록 구성하고, 데이터 출처·조회 권한·갱신 기준을 공유해 사용 전 운영 검토를 받은 기록입니다.
-            <span class="note">내부 정보 비식별 처리</span>
-          </div>
-        </div>
-        
         <div class="evidence">
           <div class="evidence-label">실제 화면</div>
           <img src="https://collette1009.github.io/portfolio-main/kakao/case1-admin.png" alt="Chrome Extension 반품 자동입력 화면">
